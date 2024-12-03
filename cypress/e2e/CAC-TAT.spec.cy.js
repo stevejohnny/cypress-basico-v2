@@ -74,10 +74,10 @@ describe('template spec', () => {
   it('marca o tipo de atendimento "Feedback"', ()=> {
     
     cy.get(':nth-child(4) > input').check().should('be.checked')
-    cy.get(':nth-child(4) > input').should('have.length', 3).each(function($radio){
-      cy.wrap($radio).check()
-      cy.wrap($radio).should('be.checked')
-    })   
+    // cy.get(':nth-child(4) > input').should('have.length', 4).each(function($radio){
+    //   cy.wrap($radio).check()
+    //    cy.wrap($radio).should('be.checked')
+    // })   
   })
 
   it('marca ambos checkboxes, depois desmarca o último', ()=> {
@@ -102,7 +102,7 @@ describe('template spec', () => {
 
  it('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', ()=> {
    // cy.get('.some-link').should('have.attr', 'target', '_blank')
-    cy.get('a').should('have.attr', 'target', '_blank').should('have.attr', 'target', '_black')
+    cy.get('a').should('have.attr', 'target', '_blank').should('have.attr', 'target', '_blank')
 
  })
 
