@@ -34,19 +34,25 @@ describe('template spec', () => {
     
   })
 
-  it('validar numero campo obrigatorio', ()=> {
+  it.only('validar numero campo obrigatorio', ()=> {
     cy.get('#firstName').type('Steve')
     cy.get('#lastName').type('Johnny')
     cy.get('#email').type('teste@teste.com')
-    cy.get('#open-text-area').type('alguma coista')
+    //const textLong = Cypress._.times('adsbtsbr', 10)
+    const textLong = 'adufduni'.repeat(100)
+    //cy.get('#open-text-area').type('qualquertexto')
+    cy.get('#open-text-area').invoke('val', textLong).should('have.value', textLong).clear()
     cy.get('#phone-checkbox').click()
     cy.contains('button', 'Enviar').click()
     cy.get('.error').should('be.visible')
   })
 
   it('preenche e limpa os campos nome, sobrenome, email e telefone', ()=> {
-    cy.get('#firstName').type('Steve').should('have.value', 'Steve').clear().should('have.value', '')
-   
+    Cypress._.times(4, ()=> {
+      cy.get('#firstName').type('Steve').should('have.value', 'Steve').clear().should('have.value', '')
+
+    })
+    
   })
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', ()=> {
