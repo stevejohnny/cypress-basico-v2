@@ -34,7 +34,7 @@ describe('template spec', () => {
     
   })
 
-  it.only('validar numero campo obrigatorio', ()=> {
+  it('validar numero campo obrigatorio', ()=> {
     cy.get('#firstName').type('Steve')
     cy.get('#lastName').type('Johnny')
     cy.get('#email').type('teste@teste.com')
